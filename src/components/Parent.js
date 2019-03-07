@@ -21,6 +21,10 @@ const Parent = props => {
 		setList(initialList)
 	}, [])
 
+	const onClose = () => {
+		setChildOpen(false)
+	}
+
 	return (
 		<Fragment>
 			{list.map(item => <div key={item.id}>{item.name}</div>)}
@@ -29,9 +33,7 @@ const Parent = props => {
 			<Child
 				open={childOpen}
 				list={list}
-				onClose={() => {
-					setChildOpen(false)
-				}}
+				onClose={onClose}
 			/>
 		</Fragment>
 	)
