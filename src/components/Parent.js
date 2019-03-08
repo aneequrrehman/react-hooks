@@ -28,7 +28,7 @@ const Parent = props => {
 	return (
 		<Fragment>
 			<h1>The problem</h1>
-			<p>I have two component (Parent and Child), the parent has is using local state for "list", which is being passed down to the child as a prop.</p>
+			<p>I have two component (Parent and Child), the parent is using local state for "list", which is being passed down to the child as a prop.</p>
 			<p>The child then takes that prop and creates a local state of it's own from that list to edit it.</p>
 			<p>The child has an inputHandler to edit the list's values within it's own local state.</p>
 			<p>The child also has a prop for onClose which is triggered from the parent.</p>
