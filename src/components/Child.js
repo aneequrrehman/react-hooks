@@ -4,16 +4,13 @@ import { map } from 'ramda'
 
 const Child = ({ open, list, onClose }) => {
 	console.log('Child...')
-	const [childList, setChildList] = useState([])
+	if (!list || list.length <= 0) return <Fragment />;
 
-	useEffect(
-		() => {
-			if (list && list.length) {
-				setChildList([...list])
-			}
-		},
-		[list],
-	)
+	const [childList, setChildList] = useState(() => {
+		// deep copy
+		const strCopy = JSON.stringify(list);
+		return JSON.parse(strCopy);
+	})
 
 	const handleInputChange = (e, listItem) => {
 		let newName = e.currentTarget.value
