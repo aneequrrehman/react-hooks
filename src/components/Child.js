@@ -20,7 +20,10 @@ const Child = ({ open, list, onClose }) => {
 
 		const newList = map(item => {
 			if (item.id === listItem.id) {
-				item.name = newName
+				const copy = JSON.stringify(item);
+				const newItem = JSON.parse(copy);
+				newItem.name = newName;
+				return newItem;
 			}
 
 			return item
