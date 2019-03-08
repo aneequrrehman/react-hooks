@@ -9,7 +9,7 @@ const Child = ({ open, list, onClose }) => {
 	useEffect(
 		() => {
 			if (list && list.length) {
-				setChildList(list)
+				setChildList([...list])
 			}
 		},
 		[list],
@@ -34,6 +34,9 @@ const Child = ({ open, list, onClose }) => {
 
 	return (
 		<Fragment>
+			<h3>Child list to edit</h3>
+			<p>Edit some values and click cancel.</p>
+			<p>The values you have changed should not be reflected in the parent but they are :(</p>
 			{childList.map(item => (
 				<div key={item.id}>
 					<input
@@ -43,7 +46,8 @@ const Child = ({ open, list, onClose }) => {
 					/>
 				</div>
 			))}
-			<button onClick={onClose}>Close</button>
+			<hr />
+			<button onClick={onClose}>Cancel & close child</button>
 		</Fragment>
 	)
 }
