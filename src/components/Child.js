@@ -20,7 +20,10 @@ const Child = ({ open, list, onClose }) => {
 
 		const newList = map(item => {
 			if (item.id === listItem.id) {
-				item.name = newName
+				return {
+					id: item.id,
+					name: newName
+				}
 			}
 
 			return item
